@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Customer Dashboard - PureDrop</title>
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+
+<header class="dash-topbar">
+  <div class="dash-left">
+    <div class="logo">💧 PureDrop</div>
+    <div class="pill" id="userLocation">📍 Location</div>
+  </div>
+
+  <div class="dash-right">
+    <div class="pill">👤 <span id="userName">Customer</span></div>
+    <button class="btn-outline" onclick="logout()">Logout</button>
+  </div>
+</header>
+
+<div class="container">
+  <div class="grid2">
+    <!-- Order -->
+    <div class="card">
+      <h2>Order Drinking Water</h2>
+      <p class="muted">Choose plan & order instantly</p>
+
+      <div class="plans-mini">
+        <label class="plan-radio">
+          <input type="radio" name="plan" value="20L Can|50" checked>
+          <div>
+            <b>20L Can</b>
+            <div class="muted">₹50 per can</div>
+          </div>
+        </label>
+
+        <label class="plan-radio">
+          <input type="radio" name="plan" value="Monthly Plan|999">
+          <div>
+            <b>Monthly Plan</b>
+            <div class="muted">₹999 per month</div>
+          </div>
+        </label>
+
+        <label class="plan-radio">
+          <input type="radio" name="plan" value="Office Pack|1999">
+          <div>
+            <b>Office Pack</b>
+            <div class="muted">₹1999 per month</div>
+          </div>
+        </label>
+      </div>
+
+      <div class="row">
+        <input type="number" id="quantity" placeholder="Quantity (eg: 1)" min="1" value="1">
+        <button class="btn" onclick="placeOrder()">Place Order</button>
+      </div>
+
+      <div class="note">
+        ✅ Delivery boys in your location can accept quickly.
+      </div>
+    </div>
+
+    <!-- Summary -->
+    <div class="card gradient">
+      <h2>Order Summary</h2>
+      <div class="summary-grid">
+        <div class="summary-box">
+          <div class="muted">Total Orders</div>
+          <div class="summary-num" id="totalOrders">0</div>
+        </div>
+        <div class="summary-box">
+          <div class="muted">Pending</div>
+          <div class="summary-num" id="pendingOrders">0</div>
+        </div>
+        <div class="summary-box">
+          <div class="muted">Delivered</div>
+          <div class="summary-num" id="deliveredOrders">0</div>
+        </div>
+      </div>
+      <p class="muted">Track orders below 👇</p>
+    </div>
+  </div>
+
+  <!-- Orders List -->
+  <div class="card mt">
+    <div class="card-head">
+      <h2>My Orders</h2>
+      <button class="btn-outline" onclick="renderOrders()">Refresh</button>
+    </div>
+    <div id="orderList" class="order-list"></div>
+  </div>
+</div>
+
+<script src="js/db.js"></script>
+<script src="js/customer.js"></script>
+</body>
+</html>

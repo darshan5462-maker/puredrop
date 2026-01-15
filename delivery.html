@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Delivery Dashboard - PureDrop</title>
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+
+<header class="dash-topbar">
+  <div class="dash-left">
+    <div class="logo">🚚 PureDrop Delivery</div>
+    <div class="pill" id="deliveryLocation">📍 Location</div>
+  </div>
+
+  <div class="dash-right">
+    <div class="pill">👨‍✈️ <span id="deliveryName">Delivery</span></div>
+    <button class="btn-outline" onclick="logout()">Logout</button>
+  </div>
+</header>
+
+<div class="container">
+  <div class="grid2">
+    <div class="card">
+      <h2>Available Orders</h2>
+      <p class="muted">Only orders in your location will appear</p>
+      <button class="btn full" onclick="renderDeliveryOrders()">Refresh Orders</button>
+      <div class="note">
+        ✅ Accept order → deliver → mark delivered
+      </div>
+    </div>
+
+    <div class="card gradient2">
+      <h2>Delivery Stats</h2>
+      <div class="summary-grid">
+        <div class="summary-box">
+          <div class="muted">Total in Location</div>
+          <div class="summary-num" id="totalInLocation">0</div>
+        </div>
+        <div class="summary-box">
+          <div class="muted">Accepted</div>
+          <div class="summary-num" id="acceptedCount">0</div>
+        </div>
+        <div class="summary-box">
+          <div class="muted">Delivered</div>
+          <div class="summary-num" id="deliveredCount">0</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card mt">
+    <div class="card-head">
+      <h2>Orders Near Me</h2>
+      <button class="btn-outline" onclick="renderDeliveryOrders()">Refresh</button>
+    </div>
+
+    <div id="deliveryOrders" class="order-list"></div>
+  </div>
+</div>
+
+<script src="js/db.js"></script>
+<script src="js/delivery.js"></script>
+</body>
+</html>

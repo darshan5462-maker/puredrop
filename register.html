@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Register - PureDrop</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="auth-body">
+
+<div class="auth-card">
+  <h2>Create Account</h2>
+  <p class="muted">Register as Customer or Delivery Boy</p>
+
+  <form id="registerForm">
+    <input type="text" id="name" placeholder="Full Name" required />
+    <input type="email" id="email" placeholder="Email" required />
+    <input type="password" id="password" placeholder="Password" required />
+
+    <select id="role" required>
+      <option value="">Select Role</option>
+      <option value="customer">Customer</option>
+      <option value="delivery">Delivery Boy</option>
+    </select>
+
+    <input type="text" id="location" placeholder="Enter Location (Area/City)" required />
+
+    <button class="btn full">Register</button>
+  </form>
+
+  <p class="muted center">Already have account? <a href="login.html">Login</a></p>
+</div>
+
+<script src="js/db.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
