@@ -23,7 +23,20 @@
       <option value="delivery">Delivery Boy</option>
     </select>
 
-    <input type="text" id="location" placeholder="Enter Location (Area/City)" required />
+    <!-- District select -->
+<select id="district" required>
+  <option value="">Select District</option>
+</select>
+
+<!-- City Search Picker -->
+<div class="loc-picker">
+  <input type="text" id="locSearch" placeholder="🔍 Search city..." autocomplete="off" required />
+  <div id="locDropdown" class="loc-dropdown"></div>
+
+  <!-- stored location -->
+  <input type="hidden" id="location" />
+</div>
+
 
     <button class="btn full">Register</button>
   </form>
@@ -33,5 +46,10 @@
 
 <script src="db.js"></script>
 <script src="app.js"></script>
+<script src="karnatakaDistrictCities.js"></script>
+<script src="locationPickerV2.js"></script>
+<script>
+  setupDistrictCityPicker();
+</script>
 </body>
 </html>

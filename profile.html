@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Profile - PureDrop</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<header class="dash-topbar">
+  <div class="dash-left">
+    <div class="logo">👤 My Profile</div>
+    <div class="pill" id="profileRole">Role</div>
+  </div>
+  <div class="dash-right">
+    <a href="customer.html" class="btn-outline">Back</a>
+    <button class="btn-outline" onclick="logout()">Logout</button>
+  </div>
+</header>
+
+<div class="container">
+  <div class="card">
+    <h2>Edit Profile</h2>
+    <p class="muted">Update your details anytime.</p>
+
+    <form id="profileForm">
+      <input id="pname" placeholder="Full Name" required>
+      <select id="plocation" required></select>
+
+      <input id="pold" placeholder="Old Password (required)" type="password" required>
+      <input id="pnew" placeholder="New Password (optional)" type="password">
+
+      <button class="btn full">Save Changes</button>
+    </form>
+  </div>
+</div>
+
+<script src="db.js"></script>
+<script src="profile.js"></script>
+</body>
+</html>

@@ -15,7 +15,11 @@
   </div>
 
   <div class="dash-right">
+    <button class="btn-outline" onclick="toggleTheme()">🌙</button>
+
     <div class="pill">👤 <span id="userName">Customer</span></div>
+    
+
     <button class="btn-outline" onclick="logout()">Logout</button>
   </div>
 </header>
@@ -52,6 +56,19 @@
           </div>
         </label>
       </div>
+      <div class="paybox">
+  <p class="muted" style="margin:10px 0 6px;">Payment Method</p>
+  <label class="plan-radio">
+    <input type="radio" name="payment" value="Cash" checked>
+    <div><b>Cash</b><div class="muted">Pay on delivery</div></div>
+  </label>
+
+  <label class="plan-radio">
+    <input type="radio" name="payment" value="UPI">
+    <div><b>UPI</b><div class="muted">Pay via GooglePay/PhonePe</div></div>
+  </label>
+</div>
+
 
       <div class="row">
         <input type="number" id="quantity" placeholder="Quantity (eg: 1)" min="1" value="1">
@@ -93,8 +110,24 @@
     <div id="orderList" class="order-list"></div>
   </div>
 </div>
+<!-- Bottom Navigation -->
+<nav class="bottom-nav">
+  <a href="customer.html" id="navHome" class="nav-item">
+    <span>🏠</span><small>Home</small>
+  </a>
+  <a href="#" onclick="scrollToOrders()" class="nav-item">
+    <span>📦</span><small>Orders</small>
+  </a>
+  <a href="profile.html" class="nav-item">
+  <span>👤</span><small>Profile</small>
+</a>
+
+</nav>
+
 
 <script src="db.js"></script>
 <script src="customer.js"></script>
+<script src="theme.js"></script>
+
 </body>
 </html>
