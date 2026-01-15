@@ -68,25 +68,42 @@ if (registerForm) {
   registerForm.addEventListener("submit", function (e) {
     e.preventDefault();
 
+    const role = document.getElementById("role").value;
+
     const user = {
       id: Date.now(),
       name: document.getElementById("name").value.trim(),
       email: document.getElementById("email").value.trim().toLowerCase(),
       password: document.getElementById("password").value,
-      role: document.getElementById("role").value,
+      role: role,
       location: document.getElementById("location").value,
     };
 
-    const users = getUsers();
+    // ✅ basic validations
+    if (!user.name || !user.email || !user.password) return alert("Fill all fields");
+    if (!user.role) return alert("Please select role");
+    if (!user.location) return alert("Please select city");
 
-    if (users.find(u => u.email === user.email)) {
-      alert("Email already registered!");
-      return;
+    // ✅ Address only for CUSTOMER
+    if (role === "customer") {
+      user.address = {
+        house: document.getElementById("house").value.trim(),
+        street: document.getElementById("street").value.trim(),
+        landmark: document.getElementById("landmark").value.trim(),
+        pincode: document.getElementById("pincode").value.trim(),
+      };
+
+      if (!user.address.house || !user.address.street || !user.address.pincode) {
+        return alert("Please fill full address (House, Street, Pincode)");
+      }
     }
 
-    if (!user.role) return alert("Please select role");
-    if (!user.location) return alert("Please select city from list");
+    const users = getUsers();
 
+    // ✅ check email already exists
+    if (users.find(u => u.email === user.email)) {
+      return alert("Email already registered!");
+    }
 
     users.push(user);
     saveUsers(users);

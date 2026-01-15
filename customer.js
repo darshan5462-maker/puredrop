@@ -107,7 +107,7 @@ function placeOrder(){
     customerId: user.id,
     customerName: user.name,
     location: user.location,
-
+    address: user.address || null, 
     plan, price, quantity, total,
     payment: pay,
 

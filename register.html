@@ -32,6 +32,14 @@
 <div class="loc-picker">
   <input type="text" id="locSearch" placeholder="🔍 Search city..." autocomplete="off" required />
   <div id="locDropdown" class="loc-dropdown"></div>
+  <!-- Customer Address (only for customer) -->
+<div id="addressBox" style="display:none;">
+  <input type="text" id="house" placeholder="House No / Building Name" />
+  <input type="text" id="street" placeholder="Street / Area" />
+  <input type="text" id="landmark" placeholder="Landmark (optional)" />
+  <input type="text" id="pincode" placeholder="Pincode" />
+</div>
+
 
   <!-- stored location -->
   <input type="hidden" id="location" />
@@ -51,5 +59,24 @@
 <script>
   setupDistrictCityPicker();
 </script>
+<script>
+  const roleSelect = document.getElementById("role");
+  const addressBox = document.getElementById("addressBox");
+
+  roleSelect.addEventListener("change", () => {
+    if (roleSelect.value === "customer") {
+      addressBox.style.display = "block";
+    } else {
+      addressBox.style.display = "none";
+
+      // clear fields when not customer
+      document.getElementById("house").value = "";
+      document.getElementById("street").value = "";
+      document.getElementById("landmark").value = "";
+      document.getElementById("pincode").value = "";
+    }
+  });
+</script>
+
 </body>
 </html>

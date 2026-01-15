@@ -150,6 +150,14 @@ lastCount = pendingCount;
       <div class="muted">Payment: <b>${o.payment || "Cash"}</b></div>
       <div class="muted">📍 ${o.location}</div>
       <div class="muted">🕒 ${o.createdAt}</div>
+      ${o.address ? `
+  <div class="muted">
+    🏠 ${o.address.house}, ${o.address.street}<br>
+    ${o.address.landmark ? "📍 " + o.address.landmark + "<br>" : ""}
+    PIN: <b>${o.address.pincode}</b>
+  </div>
+` : `<div class="muted">🏠 Address not provided</div>`}
+
 
       <div class="track">
         <div class="track-title">Tracking:</div>
